@@ -1,0 +1,35 @@
+.homebox {
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: aliceblue;
+}
+.box_item {
+  min-width: 350px;
+  width: 450px;
+  flex-grow: 1;
+}
+.box_content1 {
+  height: 100%;
+  width: 100%;
+}
+
+.box__picture {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.box_content2 {
+  background-color: #032f40;
+  height: 100%;
+  display: flex;
+}
+.box_info {
+  color: #fff;
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}

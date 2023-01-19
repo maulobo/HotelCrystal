@@ -1,0 +1,27 @@
+.logo {
+  height: 50px;
+}
+
+.navBg {
+  background-color: rgb(80, 79, 79);
+}
+
+.color {
+  color: white !important;
+}
+.es-en {
+  height: 20px;
+}
+.idiom-btn {
+  background: none;
+  border: none;
+}
+
+.nav-link {
+  color: white !important;
+  transition: border-bottom 1s ease-in;
+}
+
+.nav-link.active {
+  border-bottom: 1px solid #fff;
+}

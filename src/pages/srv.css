@@ -1,0 +1,20 @@
+.myclass-exit-done {
+}
+.myclass-exit {
+  opacity: 0;
+}
+
+.myclass-exit-active {
+  opacity: 1;
+  transition: all 1s ease;
+}
+.myclass-enter-done {
+}
+.myclass-enter {
+  opacity: 0;
+}
+
+.myclass-enter-active {
+  opacity: 1;
+  transition: all 1s ease;
+}

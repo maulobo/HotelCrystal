@@ -1,0 +1,28 @@
+.indexrooms-container {
+  padding: 20px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  justify-content: center;
+  min-height: 80vh;
+}
+.indexrooms-cards {
+  padding: 20px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+.button2 {
+  padding: 8px;
+  margin-top: 40px;
+  border-radius: 40px;
+  border: none;
+  transition: all 0.5s ease-in;
+}
+
+.button2:hover {
+  background-color: #032f40;
+  color: #fff;
+}

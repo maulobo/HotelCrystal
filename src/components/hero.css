@@ -1,0 +1,28 @@
+.hero-container {
+  background-image: url(../images/heromain.JPG);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+}
+.hero-opacity {
+  background-color: rgba(0, 0, 0, 0.4);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.button {
+  color: #fff;
+  background: none;
+  border: 1px solid #fff;
+  transition: all 0.5s ease;
+  padding: 0.5rem 0.5rem;
+}
+
+.button:hover {
+  background-color: #fff;
+  color: #032f40;
+}
