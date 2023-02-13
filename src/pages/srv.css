@@ -18,3 +18,21 @@
   opacity: 1;
   transition: all 1s ease;
 }
+.button-serv {
+  margin-top: 50px;
+  text-align: center;
+}
+.services-btn {
+  padding: 10px 20px !important;
+  background-color: #032f40 !important;
+  border: 1px solid #032f40 !important;
+  border-radius: 0 !important;
+  transition: all 1s ease-in !important;
+}
+.services-btn:hover {
+  background-color: #fff !important;
+  color: #032f40 !important;
+}
+.modalshow1 {
+  text-align: center;
+}

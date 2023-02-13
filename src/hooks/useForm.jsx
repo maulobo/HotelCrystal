@@ -29,7 +29,10 @@ export const useForm = (initialForm, validateForm) => {
       setResponse(true);
       setForm(initialForm);
 
-      setTimeout(() => setResponse(false), 10000);
+      setTimeout(() => {
+        return setResponse(false), setLoading(false);
+      }, 5000);
+
       //POSTEAR LOS DATOS AL MAIL
     } else {
       return;

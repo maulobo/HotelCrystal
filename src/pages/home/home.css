@@ -1,5 +1,5 @@
 * {
-  font-family: Georgia, "Times New Roman", Times, serif;
+  font-family: "Markiza1.5", sans-serif;
 }
 
 .adjust {
@@ -39,4 +39,46 @@
   justify-content: center;
   color: aliceblue;
   text-align: center;
+}
+.map-index {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 20px;
+}
+.attachment-info {
+  font-size: large;
+}
+
+@media only screen and (max-width: 650px) {
+  .title-hero {
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 5px;
+  }
+  .subtitle-hero {
+    font-size: 0.8em;
+  }
+  .buttonHero {
+    font-size: 0.8em;
+    padding: 0.8rem 1rem;
+  }
+}
+@media only screen and (min-width: 650px) {
+  * {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 650px) and (max-width: 850px) {
+  .title-hero {
+    font-size: 2.5em;
+    font-weight: bold;
+    letter-spacing: 10px;
+  }
+  .buttonHero {
+    font-size: 1em;
+    padding: 0.8rem 1rem;
+  }
 }

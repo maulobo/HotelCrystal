@@ -26,8 +26,8 @@ const NavbarComp = () => {
             <img src={logo} alt="logo" className="logo" />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav ">
-            <Nav className="me-auto ">
+          <Navbar.Collapse id="basic-navbar-nav">
+            <Nav className="me-auto  ">
               <Nav.Link
                 as={NavLink}
                 className={({ isActive }) => (isActive ? "active" : "")}
@@ -36,7 +36,7 @@ const NavbarComp = () => {
                   setIsEnter((value) => !value);
                 }}
               >
-                Home
+                {t("home")}
               </Nav.Link>
               <Nav.Link
                 as={NavLink}
@@ -46,7 +46,7 @@ const NavbarComp = () => {
                 className={({ isActive }) => (isActive ? "active" : "")}
                 to="/servicios"
               >
-                Servicios
+                {t("rooms")}
               </Nav.Link>
               <Nav.Link
                 onClick={() => {
@@ -56,7 +56,7 @@ const NavbarComp = () => {
                 className={({ isActive }) => (isActive ? "active" : "")}
                 to="/contacto"
               >
-                Contacto
+                {t("contact")}
               </Nav.Link>
               <Nav.Link>
                 <button className="idiom-btn" onClick={changeEnglish}>

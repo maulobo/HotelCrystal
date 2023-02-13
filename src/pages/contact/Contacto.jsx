@@ -11,42 +11,46 @@ import "./contacto.css";
 
 import { useForm } from "../../hooks/useForm";
 import Footer from "../../components/Footer";
+import { useTranslation } from "react-i18next";
+import Loader from "../../components/Loader";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
-const initialForm = {
-  name: "",
-  lastname: "",
-  email: "",
-  phone: "",
-};
-
-const validationsForm = (form) => {
-  let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
-  let regexComments = /^.{1,400}$/;
-  let regexNumber = /[0-9]{3}[-][0-9]{7}/;
-  //cada imput es independiente si o si
-
-  let errors = {};
-
-  if (!form.name.trim()) {
-    errors.name = "Recuerde completar con su nombre.";
-  }
-  if (!form.lastname.trim()) {
-    errors.lastname = "Recuerde completar con su apellido.";
-  }
-  if (!form.phone.trim()) {
-    errors.phone = "ingresa numero de telefono";
-  } else if (!regexNumber.test(form.phone.trim()))
-    errors.phone =
-      "ingresa tu telefono sin el prefijo 0,  - su número sin el (15) ej: 351-23432501";
-  if (!form.email.trim()) {
-    errors.email = "Ingresa tu email";
-  } else if (!regexEmail.test(form.email.trim())) {
-    errors.email = "Tu email no es valido, ej: usuario@dominio.com";
-  }
-
-  return errors;
-};
 const Contacto = () => {
+  const [t] = useTranslation();
+  const initialForm = {
+    name: "",
+    lastname: "",
+    email: "",
+    phone: "",
+  };
+
+  const validationsForm = (form) => {
+    let regexEmail = /^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$/;
+
+    let regexNumber = /[0-9]{3}[-][0-9]{7}/;
+    //cada imput es independiente si o si
+
+    let errors = {};
+
+    if (!form.name.trim()) {
+      errors.name = `${t("errorForm.nameError")}`;
+    }
+    if (!form.lastname.trim()) {
+      errors.lastname = `${t("errorForm.lastnameError")}`;
+    }
+    if (!form.phone.trim()) {
+      errors.phone = `${t("errorForm.numberError")}`;
+    } else if (!regexNumber.test(form.phone.trim()))
+      errors.phone = `${t("errorForm.numberErrorII")}`;
+    if (!form.email.trim()) {
+      errors.email = `${t("errorForm.emailError")}`;
+    } else if (!regexEmail.test(form.email.trim())) {
+      errors.email = `${t("errorForm.emailErrorData")}`;
+    }
+
+    return errors;
+  };
+
   const {
     form,
     erros,
@@ -56,9 +60,29 @@ const Contacto = () => {
     handleChange,
     handleBlur,
   } = useForm(initialForm, validationsForm);
+  //Validacion fecha
+  const date = new Date();
+  const date1 = date.toISOString().substring(0, 10);
 
   return (
     <>
+      <HelmetProvider>
+        <Helmet>
+          <title>Hotel Crystal</title>
+          <meta
+            name="author"
+            content="Lobo Mauro Andrés, de Prado Valeria Anabel"
+          />
+          <meta
+            name="description"
+            content="Contactate para vivir la experiencia de nuestro Hotel en el centro de Neuquén"
+          />
+          <meta
+            name="keywords"
+            content="Hotel Crystal, Neuquén, capital, habitaciones, servicios, desayuno, sala de conferencias, vacaciones"
+          ></meta>
+        </Helmet>
+      </HelmetProvider>
       <main className="main-contact">
         <div className="contact-wrapper">
           <Container className="container-contact ">
@@ -66,7 +90,7 @@ const Contacto = () => {
               <Col fluid="lg">
                 <div className="contact-index">
                   <h4 style={{ textAlign: "center", padding: "20px" }}>
-                    Estamos a disposicion para responder todas tus consultas.
+                    {t("contact-h4")}
                   </h4>
                   <Form
                     className="form margin-f"
@@ -76,7 +100,7 @@ const Contacto = () => {
                   >
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="formGridEmail">
-                        <Form.Label>Nombre</Form.Label>
+                        <Form.Label>{t("name")}</Form.Label>
                         <Form.Control
                           type="text"
                           name="name"
@@ -88,7 +112,7 @@ const Contacto = () => {
                         {erros.name && <p className="error">{erros.name}</p>}
                       </Form.Group>
                       <Form.Group as={Col} controlId="formGridPassword">
-                        <Form.Label>Apellido</Form.Label>
+                        <Form.Label>{t("lastName")}</Form.Label>
                         <Form.Control
                           type="text"
                           name="lastname"
@@ -104,7 +128,7 @@ const Contacto = () => {
                     </Row>
                     <Row className="mb-3">
                       <Form.Group as={Col} controlId="formGridAddress1">
-                        <Form.Label>Número telefónico</Form.Label>
+                        <Form.Label>{t("Phone")}</Form.Label>
                         <Form.Control
                           type="tel"
                           placeholder="Código de área-número sin 15"
@@ -117,8 +141,35 @@ const Contacto = () => {
                         {erros.phone && <p className="error">{erros.phone}</p>}
                       </Form.Group>
                     </Row>
+                    <Row className="mb-3">
+                      <Form.Group as={Col} controlId="formGridFechaI">
+                        <Form.Label>{t("formHabitaciones.in")}:</Form.Label>
+                        <Form.Control
+                          type="date"
+                          name="in"
+                          className="input_in"
+                          min={date1}
+                          onBlur={handleBlur}
+                          onChange={handleChange}
+                          value={form.in}
+                          required
+                        />
+                        {erros.in && <p className="error">{erros.in}</p>}
+                      </Form.Group>
+
+                      <Form.Group as={Col} controlId="formGridformGridFechaII">
+                        <Form.Label>{t("formHabitaciones.on")}:</Form.Label>
+                        <Form.Control
+                          type="date"
+                          name="on"
+                          onBlur={handleBlur}
+                          onChange={handleChange}
+                          value={form.on}
+                        />
+                      </Form.Group>
+                    </Row>
                     <Form.Group className="mb-3" controlId="formGridAddress1">
-                      <Form.Label>Correo</Form.Label>
+                      <Form.Label>{t("email")}</Form.Label>
                       <Form.Control
                         type="email"
                         name="email"
@@ -133,7 +184,7 @@ const Contacto = () => {
                       className="mb-3"
                       controlId="exampleForm.ControlTextarea1"
                     >
-                      <Form.Label>Datos adicionales</Form.Label>
+                      <Form.Label>{t("message")}</Form.Label>
                       <Form.Control as="textarea" rows={3} />
                     </Form.Group>
 
@@ -142,11 +193,11 @@ const Contacto = () => {
                       className="btn-submit"
                       style={{ marginTop: "1rem" }}
                     >
-                      Enviar
+                      {t("send")}
                     </button>
                   </Form>
                 </div>
-
+                {loading && <Loader />}
                 {response && (
                   <Alert variant="light">
                     <Alert.Heading>Datos enviados correctamente</Alert.Heading>

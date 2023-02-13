@@ -3,7 +3,7 @@
 }
 
 .navBg {
-  background-color: rgb(80, 79, 79);
+  background-color: #034159;
 }
 
 .color {
@@ -24,4 +24,7 @@
 
 .nav-link.active {
   border-bottom: 1px solid #fff;
+}
+.navbar-toggler-icon {
+  background-image: url(../images/navBar.png) !important;
 }

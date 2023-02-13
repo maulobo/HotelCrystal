@@ -8,12 +8,19 @@ import simple3 from "../images/Habitaciones/Simple/s3.JPG";
 import triple1 from "../images/Habitaciones/triple/t2.JPG";
 import triple2 from "../images/Habitaciones/triple/t3.JPG";
 import triple3 from "../images/Habitaciones/triple/t6.JPG";
+import superior1 from "../images/Habitaciones/superior/sup2.JPG";
+import superior2 from "../images/Habitaciones/superior/sup3.JPG";
+import superior3 from "../images/Habitaciones/superior/sup5.JPG";
 
 import Modal1 from "./Modal";
 
 import "./roomcards.css";
+import { useTranslation } from "react-i18next";
+import { BsFillPersonFill } from "react-icons/bs";
+import SmallModal from "./SmallModal";
 
 const RoomCards = () => {
+  const [t] = useTranslation();
   const [modalShow1, setModalShow1] = useState(false);
   const [modalShow2, setModalShow2] = useState(false);
   const [modalShow3, setModalShow3] = useState(false);
@@ -23,27 +30,26 @@ const RoomCards = () => {
     <div className="rooms-full-container">
       <div className="rooms-opacity">
         <div className="rooms-container">
-          <h6>BIG SIZED ROOMS</h6>
-          <h3>Aca va el titulo de las habitaciones</h3>
+          <h6>{t("room-indexh6")} </h6>
+          <h3>{t("room-indexh3")}</h3>
           <div className="rooms-cards-container">
             <div
               className="room-item1 room-item"
               variant="primary"
               onClick={() => setModalShow1(true)}
             >
-              Habitacion Doble
+              {t("DoubleRoom")}
             </div>
             <Modal1 show={modalShow1} onHide={() => setModalShow1(false)}>
-              <h3 style={{ textAlign: "center" }}>Habitacion Doble</h3>
+              <h3 style={{ textAlign: "center" }}>{t("DoubleRoom")}</h3>
               <img src={doble1} className="d-block w-100" alt="doble1" />
               <img src={doble2} className="d-block w-100" alt="doble2" />
               <img src={doble3} className="d-block w-100" alt="doble3" />
+              <p>{t("room-description-1")}</p>
+              <p>Standard: $9.600 / Superior: $11.500 </p>
               <p>
-                Las habitaciones dobles cuentan con dos camas individuales o una
-                cama matrimonial. Cuenta con su juego de sábanas y un cubrecama.
-                También está a disposición una frazada, que se puede encontrar
-                en el armario o ya puesta en la cama dependiendo del clima. Las
-                habitaciones vienen equipadas con un baño con ducha.
+                <BsFillPersonFill />
+                <BsFillPersonFill />
               </p>
             </Modal1>
 
@@ -52,24 +58,17 @@ const RoomCards = () => {
               variant="primary"
               onClick={() => setModalShow2(true)}
             >
-              Habitacion Simple
+              {t("SimpleRoom")}
             </div>
             <Modal1 show={modalShow2} onHide={() => setModalShow2(false)}>
-              <h3 style={{ textAlign: "center" }}>Habitacion simple</h3>
+              <h3 style={{ textAlign: "center" }}>{t("TripleRoom")}</h3>
               <img src={simple1} className="d-block w-100" alt="simple1" />
               <img src={simple2} className="d-block w-100" alt="simple2" />
               <img src={simple3} className="d-block w-100" alt="simple2" />
+              <p>{t("room-description-2")}</p>
+              <p>Standard: $7.900 / Superior: $9.500 </p>
               <p>
-                Las habitaciones singles cuentan con una cama individual de
-                medidas estándar. Cuenta con su juego de sábanas y un cubrecama.
-                También está a disposición del huésped una frazada por si lo
-                desea, que se puede encontrar en el armario o ya puesta en la
-                cama dependiendo del clima. Las habitaciones vienen equipadas
-                con un baño con ducha. Sobre las camas encontraremos un juego de
-                toallas, compuesto por una toalla, un toallón y una segunda
-                toalla destinada para ser usada como alfombra al salir de la
-                ducha. Dentro del baño se encontrará con un jabón tocador y un
-                sachet 2×1 de shampoo y acondicionador.
+                <BsFillPersonFill />
               </p>
             </Modal1>
 
@@ -78,14 +77,21 @@ const RoomCards = () => {
               variant="primary"
               onClick={() => setModalShow4(true)}
             >
-              Habitacion triple
+              {t("TripleRoom")}
             </div>
 
             <Modal1 show={modalShow4} onHide={() => setModalShow4(false)}>
-              <h3 style={{ textAlign: "center" }}>Habitacion triple</h3>
+              <h3 style={{ textAlign: "center" }}>{t("TripleRoom")}</h3>
               <img src={triple1} alt="trirple1" />
               <img src={triple2} alt="trirple2" />
               <img src={triple3} alt="trirple3" />
+              <p>{t("room-description-3")}</p>
+              <p>Standard: $11.900 / Superior: $14.500 </p>
+              <p>
+                <BsFillPersonFill />
+                <BsFillPersonFill />
+                <BsFillPersonFill />
+              </p>
             </Modal1>
 
             <div
@@ -93,18 +99,26 @@ const RoomCards = () => {
               variant="primary"
               onClick={() => setModalShow3(true)}
             >
-              Habitacion Superior
+              {t("Superior")}
             </div>
 
             <Modal1 show={modalShow3} onHide={() => setModalShow3(false)}>
-              <h3 style={{ textAlign: "center" }}>Habitacion Superior</h3>
-              <img src={doble1} alt="" />
-              <img src={doble2} alt="" />
-              <img src={doble2} alt="" />
+              <h3 style={{ textAlign: "center" }}>{t("Superior")}</h3>
+              <img src={superior1} alt="superior1" />
+              <img src={superior2} alt="superior2" />
+              <img src={superior3} alt="superior3" />
+              <p>{t("room-description-4")}</p>
+              <p>Standard: $14.400 </p>
+              <p>
+                <BsFillPersonFill />
+                <BsFillPersonFill />
+                <BsFillPersonFill />
+                <BsFillPersonFill />
+              </p>
             </Modal1>
           </div>
           <hr />
-          <h4>Rooms mas rooms</h4>
+          <SmallModal />
         </div>
       </div>
     </div>

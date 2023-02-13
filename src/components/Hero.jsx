@@ -1,18 +1,23 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import "./hero.css";
 
 const Hero = () => {
   const [t] = useTranslation();
   return (
     <>
-      <div className="hero-container ">
+      <header className="hero-container ">
         <div className="hero-opacity">
-          <h3>{t("hero")}</h3>
-          <h1>HOTEL CRYSTAL</h1>
-          <button className="button">{t("hero-button")}</button>
+          <div className="hero-info">
+            <p className="subtitle-hero">{t("hero")}</p>
+            <h1 className="title-hero">HOTEL CRYSTAL</h1>
+            <Link to="/servicios" className="buttonHero">
+              {t("hero-button")}
+            </Link>
+          </div>
         </div>
-      </div>
+      </header>
     </>
   );
 };

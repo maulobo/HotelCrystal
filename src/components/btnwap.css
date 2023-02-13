@@ -1,0 +1,40 @@
+.container-btnW {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.wts-btn {
+  color: #fef7e5;
+  margin: 2rem;
+  cursor: pointer;
+  position: fixed;
+  top: 80%;
+  background-color: #a8bebd;
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 100%;
+  z-index: 9;
+  animation: 1s pulse infinite;
+  text-decoration: none;
+}
+.wts-btn:hover {
+  text-decoration: none;
+  color: #034159;
+}
+@keyframes pulse {
+  0% {
+    filter: drop-shadow(0 0 0.3rem #034159);
+  }
+  50% {
+    filter: drop-shadow(0 0 0.2rem #49352b);
+  }
+  80% {
+    filter: drop-shadow(0 0 0.2rem #2a211c);
+  }
+  100% {
+    filter: drop-shadow(0 0 0.75rem #062423);
+  }
+  50% {
+    filter: drop-shadow(0 0 0.2rem #49352b);
+  }
+}

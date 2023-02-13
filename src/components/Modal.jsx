@@ -1,4 +1,3 @@
-import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import Carrousel from "./Carrousel";
 import { AiOutlineWifi } from "react-icons/ai";
@@ -10,7 +9,6 @@ import "./roomcards.css";
 
 const Modal1 = (props) => {
   const { children } = props;
-  console.log(children);
 
   return (
     <Modal
@@ -45,7 +43,8 @@ const Modal1 = (props) => {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        {children[6]}
+        {children[5]}
       </Modal.Footer>
     </Modal>
   );

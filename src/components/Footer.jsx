@@ -1,19 +1,29 @@
 import "./footer.css";
 import logo from "../images/logo.png";
+import { BiMap } from "react-icons/bi";
+import { AiFillPhone, AiOutlineInstagram, AiOutlineMail } from "react-icons/ai";
 
 const Footer = () => {
   return (
-    <div className="site-footer">
+    <footer className="site-footer">
       <div className="site-footer-main">
         <div className="footer-container">
           <div className="footer-box">
             <img src={logo} alt="logo" className="footer-logo" />
           </div>
           <div className="footer-box">
-            <h6>Contact</h6>
-            <h6>mail</h6>
-            <h6>ig</h6>
-            <h6>telefono</h6>
+            <h6>
+              <BiMap /> Avenida Coronel Olascoaga 268, Neuquen Argentina
+            </h6>
+            <h6>
+              <AiOutlineMail /> crystalneuquen@yahoo.com
+            </h6>
+            <h6>
+              <AiOutlineInstagram /> hotel.crystal.nqn
+            </h6>
+            <h6>
+              <AiFillPhone /> 2994422414
+            </h6>
           </div>
         </div>
       </div>
@@ -23,7 +33,7 @@ const Footer = () => {
           rights reserved.
         </p>
       </div>
-    </div>
+    </footer>
   );
 };
 

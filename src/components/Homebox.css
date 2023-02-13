@@ -1,5 +1,5 @@
 .homebox {
-  height: 90vh;
+  min-height: 90vh;
   display: flex;
   flex-wrap: wrap;
   background-color: aliceblue;
